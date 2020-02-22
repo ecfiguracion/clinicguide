@@ -28,11 +28,11 @@ CREATE TABLE `clinic` (
   `address` varchar(1000) NOT NULL,
   `maplatitude` decimal(12,9) DEFAULT NULL,
   `maplongitude` decimal(12,9) DEFAULT NULL,
-  `officehours` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `officehours` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`clinic`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `clinicdoctor` (
   PRIMARY KEY (`clinicdoctor`),
   KEY `clinicdoctor_fk` (`clinic`),
   CONSTRAINT `clinicdoctor_fk` FOREIGN KEY (`clinic`) REFERENCES `clinic` (`clinic`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +87,7 @@ CREATE TABLE `clinicservices` (
   PRIMARY KEY (`clinicservices`),
   KEY `clinicservices_fk` (`clinic`),
   CONSTRAINT `clinicservices_fk` FOREIGN KEY (`clinic`) REFERENCES `clinic` (`clinic`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +115,7 @@ CREATE TABLE `doctor` (
   `avatar` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`doctor`),
   CONSTRAINT `doctor_fk` FOREIGN KEY (`doctor`) REFERENCES `clinicdoctor` (`clinicdoctor`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +140,7 @@ CREATE TABLE `servicetype` (
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`servicetype`),
   CONSTRAINT `servicetype_fk` FOREIGN KEY (`servicetype`) REFERENCES `clinicservices` (`clinicservices`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -167,7 +167,7 @@ CREATE TABLE `useraccount` (
   `isadmin` tinyint(1) NOT NULL,
   `clinic` int(11) DEFAULT NULL,
   PRIMARY KEY (`useraccount`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
